@@ -17,4 +17,8 @@ def create_app(config_name):
     # Initializing boostrap
     bootstrap.init_app(app)
 
+    # Register the blueprint
+    from .main import main as main_blueprint 
+    app.register_blueprint(main_blueprint)
+
     return app
