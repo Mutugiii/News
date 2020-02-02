@@ -1,5 +1,5 @@
 from flask import Flask
-from flask-bootstrap import Bootstrap
+from flask_bootstrap import Bootstrap
 from config import config_options
 
 # Initialize bootstrap
