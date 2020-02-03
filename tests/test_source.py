@@ -1,7 +1,7 @@
 import unittest
-from app.models import models
+from app.models import Source
 
-class TestArticle(unittest.TestCase):
+class TestSource(unittest.TestCase):
     '''
     Test class for source objects
 
