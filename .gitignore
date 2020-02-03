@@ -4,3 +4,4 @@ virtual/
 instance
 *.swp
 start.sh
+.vscode
