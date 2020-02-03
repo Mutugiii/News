@@ -1,15 +1,30 @@
 {% macro displayArticles(article_list) %}
 
 {% for article in article_list %}
-    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
-    <a href="{{article.url}}">
-        <img src="{{article.urlToImage}}" alt="Article Image" height="300px" max-width="400px">
-    </a>
-    <h4>{{article.title}}</h4>
-    <small>Author: {{article.author}}</small>
-    <p>{{article.description}}</p>
-    <small>{{article.date_published}}</small>
-    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+<hr style="height:1px;border:none;color:#333;background-color:#333;" />
+<a href="{{article.url}}">
+    <img src="{{article.urlToImage}}" alt="Article" height="300px" max-width="400px">
+</a>
+<h4>{{article.title}}</h4>
+<small>Author: {{article.author}}</small>
+<p>{{article.description}}</p>
+<p>{{article.date_published}}</p>
+<a href="{{article.url}}" target="_blank">Continue reading....</a>
+<hr style="height:1px;border:none;color:#333;background-color:#333;" />
 {% endfor %}
 
+{% endmacro %}
+
+{% macro displaySources(source_list)%}
+{% for source in source_list %}
+<hr style="height:1px;border:none;color:#333;background-color:#333;" />
+<p class="sourceTitle">{{source.name}} <span> - {{source.category}}</span></p>
+<p class="sourceDesc">{{source.description}}</p>
+<div class="container row">
+    <div class="col-md-8"></div>
+    <small class="col-md-4" style="text-align: right;"><a href="{{source.url}}" target="_blank">Visit the source Here</a></small>
+</div>
+<p style="font-size: 18px;">View source articles here: <a href="/sources/{{source.id}}" target="_blank"> Sources</a> </p>
+<hr style="height:1px;border:none;color:#333;background-color:#333;" />
+{% endfor %}
 {% endmacro %}

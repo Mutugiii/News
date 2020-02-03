@@ -11,9 +11,9 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/">Sources</a></li>
+                <li><a href="/sources">Sources</a></li>
                 <li><a href="/">Favorites</a></li>
-            </ul>   
+            </ul>
         </div>
     </div>
 </nav>
@@ -24,10 +24,18 @@
     </div>
     <form class="form-inline col-md-4">
         <input type="text" name="article_query" placeholder="" class="form-control">
-        <input type="submit" value="Submit Search" class="btn" style="color: white; background-color: black;">
+        <input type="submit" value="Submit Search" class="btn" style="color: white; background-color: #222222;">
     </form>
 </div>
-
-<div class="container-fluid" style="color: white; background-color: black;">
-    
+<br>
+<div class="container-fluid" style="color: white; background-color: #222222;">
+    <div class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" style="font-size:15px;">
+            {% for article in technology %}
+            <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
+                <p style="color: white; padding-left:5px;text-align:center;">{{article.description}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
