@@ -1,5 +1,5 @@
 import urllib.request,json
-from . import models
+from .models import Source,Article
 
 # Getting api key and base urls
 api_key = None
@@ -12,4 +12,38 @@ def configure_request(app):
     article_base_url = app.config['ARTICLE_BASE_URL']
     source_base_url = app.config['SOURCE_BASE_URL']
 
+def process_articles(article_dictionary):
+    '''
+    Function to process the resulting dictionary that  json.load creates from an api call
+
+    Args:
+        article_dictionary: Resulting dictionary of json.loads function
+    '''
+    articles_list = []
+    for article in article_dictionary:
+        author = article.get('author')
+        title = article.get('title')
+        description = article.get('description')
+        url = article.get('url')
+        category = article.get('category')
+        language = article.get('language')
+        country = article.get('country')
+
+        if author:
+            article_object = Article(author,title,description,url,category,language,country)
+            articles_list.append(article_object)
+
+    return articles_list
+
+
+def get_articles(query):
+    '''
+    Function to get articles based on the topic or keyword
+    '''
+    article_details = json.loads(urllib.request.urlopen(article_base_url.format(query,api_key)).read())
+
+    article_object = None
+    if article_details['articles']:
+        article_object = process_articles(article_details['articles'])
+    return article_object
 

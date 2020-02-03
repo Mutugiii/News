@@ -1,0 +1,7 @@
+{% macro displayArticles(article_list) %}
+
+    {% for article in article_list %}
+        <p>{{ article.author }}</p>
+    {% endfor %}
+
+{% endmacro %}
