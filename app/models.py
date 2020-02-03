@@ -4,25 +4,30 @@ class Source:
     '''
 
     def __init__(self,id,name,description,url,category,language,country):
-        id = self.id
-        name = self.name
-        description = self.description
-        url = self.url
-        category = self.category
-        language = self.language
-        country = self.country 
+        '''
+        Initiliaze class variables
+        '''
+        self.id = id 
+        self.name = name 
+        self.description = description
+        self.url = url 
+        self.category = category 
+        self.language = language
+        self.country = country 
 
 class Article:
     '''
-    Article class to define article objectsa
-
+    Article class to define article objects
     '''
 
     def __init__(self,author,title,description,url,urlToImage,publishedAt,content):
-        author = self.author
-        title = self.title
-        description = self.description
-        url = self.url
-        urlToImage = self.urlToImage
-        publishedAt = self.publishedAt
-        content = self.content
+        '''
+        Initiliaze class variables
+        '''
+        self.author = author
+        self.title = title
+        self.description = description
+        self.url = url
+        self.urlToImage = urlToImage
+        self.publishedAt = publishedAt
+        self.content = content
