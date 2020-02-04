@@ -30,11 +30,11 @@ def process_articles(article_dictionary):
         description = article.get('description')
         url = article.get('url')
         image_url = article.get('urlToImage')
-        date_published = article.get('publishedAt')
+        publishedAt = article.get('publishedAt')
         content = article.get('content')
 
         if image_url:
-            article_object = Article(author,title,description,url,image_url,date_published,content)
+            article_object = Article(author,title,description,url,image_url,publishedAt,content)
             articles_list.append(article_object)
 
     return articles_list
