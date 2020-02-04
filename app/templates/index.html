@@ -7,13 +7,30 @@
 </head>
 
 <body>
-    {% extends 'bootstrap/base.html' %} 
+    {% extends 'bootstrap/base.html' %}
     {% import 'macros.html' as macro %}
 
     {% block style %} {{super()}}
     <link rel="stylesheet" href="{{url_for('.static',filename='css/main.css')}}">
+    <style>
+        @media only screen and (min-width: 448px) {
+            .sticky-top {
+                height: 130px;
+            }
+        }
+
+        @media only screen and (min-width:450px) and (max-width: 700px) {
+            img {
+                width: 300px;
+            }
+
+            .sticky-top {
+                height: 130px;
+            }
+        }
+    </style>
     {% endblock %}
-    
+
     {% block navbar %}
     <div class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
@@ -34,7 +51,7 @@
         </form>
     </div>
     <br>
-    <div class="container-fluid sticky-top" style="color: white; background-color: #222222; height: 100px;">
+    <div class="container-fluid sticky-top" style="color: white; background-color: #222222; height: 125px;">
         <div class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" style="font-size:15px;">
                 {% for article in general %}
