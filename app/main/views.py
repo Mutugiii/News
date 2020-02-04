@@ -11,10 +11,8 @@ def index():
     '''
 
     # Getting topics
-    technology_articles = get_articles('technology')
-    business_articles = get_articles('business')
     sports_articles = get_articles('sports')
-    entertainment_articles = get_articles('entertainment')
+    technology_articles = get_articles('technology')
     general_articles = get_articles('general')
     title = 'News Highlights'
 
@@ -24,7 +22,7 @@ def index():
 
     if search_article:
         return redirect(url_for('.search', search_word = search_article))
-    return render_template('index.html', title = title, technology = technology_articles, sources = source_pieces, general = general_articles, entertainment = entertainment_articles, business = business_articles, sports = sports_articles)
+    return render_template('index.html', title = title, sources = source_pieces, general = general_articles, technology = technology_articles, sports = sports_articles)
 
 @main.route('/search/<search_word>')
 def search(search_word):

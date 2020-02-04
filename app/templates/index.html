@@ -51,13 +51,13 @@
         </form>
     </div>
     <br>
-    <div class="container-fluid sticky-top" style="color: white; background-color: #222222; height: 125px;">
+    <div class="container-fluid sticky-top" style="color: white; background-color: #222222; height: 100px;">
         <div class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" style="font-size:15px;">
                 {% for article in general %}
                 <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
                     <h5 style="font-family: 'Oswald', sans-serif; color: FFFEAD; text-align: center;">General News</h5>
-                    <p style="color: white; padding-left:5px;text-align:center;">{{article.description}} <span><a
+                    <p style="color: white; padding-left:5px;text-align:center;">{{article.description | truncate(120)}} <span><a
                                 href="{{article.url}}"> read more</a></span></p>
                 </div>
                 {% endfor %}
@@ -117,17 +117,13 @@
         <div class="row">
             <div class="col-md-6">
                 <h5 style="font-family: 'Oswald', sans-serif; text-align: center;">Technology</h5>
-                {{ macro.displayArticles(entertainment) }}
+                {{ macro.displayArticles(technology) }}
             </div>
             <div class="col-md-6">
                 <h5 style="font-family: 'Oswald', sans-serif; text-align: center;">Sports</h5>
                 {{ macro.displayArticles(sports) }}
             </div>
         </div>
-        <!-- <div class="col-md-4">
-            <h5>Entertainment</h5>
-            {{ macro.displayArticles(entertainment) }}
-        </div> -->
     </div>
 
     <footer class="page-footer" style="background-color: #222222; color: white; height: 150px;">
