@@ -1,4 +1,3 @@
-[![codebeat badge](https://codebeat.co/badges/dd7714e4-23d5-4030-adfb-4b1f6642ee35)](https://codebeat.co/projects/github-com-mutugiii-news-master)
 # News
 ## Description
 This is an application that displays various News sources and articles from various globally reknown sources. Users can search for respective sources or articles or keywords.
