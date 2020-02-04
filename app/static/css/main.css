@@ -2,4 +2,7 @@
     img {
         width: 300px;
     }
+    .sticky-top {
+        height: 130px;
+    }
 }
