@@ -2,6 +2,7 @@ from flask import render_template,request,redirect,url_for
 from . import main
 from ..requests import get_articles,search_articles,get_sources, get_source_articles
 from ..models import Article
+from dateutil.parser import parse
 
 @main.route('/')
 def index():
@@ -61,3 +62,17 @@ def four_0_four(error):
     Function to render errors
     '''
     return render_template('404.html'),404
+
+
+# Creating flask filter
+@main.app_template_filter('formatdate')
+def dateformat(value):
+    format_date = parse(value)
+    date_date = format_date.date()
+    return date_date
+
+@main.app_template_filter('formattime')
+def timeformat(value):
+    format_time = parse(value)
+    date_time = format_time.time()
+    return date_time

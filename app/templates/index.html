@@ -7,9 +7,13 @@
 </head>
 
 <body>
-    {% extends 'bootstrap/base.html' %}
+    {% extends 'bootstrap/base.html' %} 
     {% import 'macros.html' as macro %}
 
+    {% block style %} {{super()}}
+    <link rel="stylesheet" href="{{url_for('.static',filename='css/main.css')}}">
+    {% endblock %}
+    
     {% block navbar %}
     <div class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
@@ -30,7 +34,7 @@
         </form>
     </div>
     <br>
-    <div class="container-fluid sticky-top" style="color: white; background-color: #222222; height: 85px;">
+    <div class="container-fluid sticky-top" style="color: white; background-color: #222222; height: 100px;">
         <div class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" style="font-size:15px;">
                 {% for article in general %}
@@ -43,9 +47,7 @@
             </div>
         </div>
     </div>
-    {% endblock %}
-
-    {%block content %}
+    {% endblock %} {%block content %}
     <div class="container">
         <hr style="height:1px;border:none;color:#333;background-color:#333;" />
         <h3 style="text-align: center;">Popular Sources</h3>
