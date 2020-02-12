@@ -14,6 +14,12 @@ class TestArticle(unittest.TestCase):
         '''
         self.new_article = Article('Kamau Ngwiri', 'BBI in Kenya', 'BBI is wasting time!', 'nation.co.ke', 'img.nation.co.ke','2019-04-12T10:55:00Z','This is too long')
 
+    def tearDown(self):
+        '''
+        Tear Down class to clean up after every test case
+        '''
+        self.new_article = None
+
     def test_instance(self):
         '''
         Test that the initialized article is an instance of the model class

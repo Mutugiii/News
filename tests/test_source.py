@@ -14,6 +14,12 @@ class TestSource(unittest.TestCase):
         '''
         self.new_source = Source('abc-news', 'ABC News', 'Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com.', 'https://abcnews.go.com', 'general','en','us')
 
+    def tearDown(self):
+        '''
+        Tear Down class to clean up after every test case
+        '''
+        self.new_source = None
+
     def test_instance(self):
         '''
         Test that the initialized article is an instance of the model class
